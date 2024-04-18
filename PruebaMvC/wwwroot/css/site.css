@@ -1,0 +1,125 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /*margin-bottom: 60px;*/
+    background-image: url(fresh-vegetables-flat-lay-healthy-lifestyle.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    filter: contrast(150%);
+}
+
+
+
+.form-label {
+    color: white
+}
+
+h1 {
+    color: white
+}
+
+.table, td, th, tr {
+    font-family: sans-serif;
+    padding: 1rem;
+    color: black;
+}
+
+thead {
+    border-bottom: none;
+}
+
+th {
+    width: fit-content;
+    background-color: #fff4;
+}
+
+thead th:first-child {
+    border-bottom-left-radius: .8rem;
+    border-top-left-radius: .8rem;
+}
+
+thead th:last-child {
+    border-bottom-right-radius: .8rem;
+    border-top-right-radius: .8rem;
+}
+
+tbody {
+    border-bottom: none;
+}
+
+
+.table {
+    width: 70vw;
+    height: 70vh;
+    background-color: #fff4;
+    box-shadow: 0 .4rem .8rem #0005;
+    border-radius: .8rem;
+    overflow: auto;
+    color: white;
+    scrollbar-color: white;
+}
+
+
+.mt-3 {
+    width: 67vw;
+    background-color: #fff5;
+    backdrop-filter: blur(7px);
+    border-radius: .8rem;
+    color: black;
+}
+
+label {
+    padding: .2rem;
+}
+
+.filter-bar {
+    position: absolute;
+    top: 90px;
+    right: 290px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.table::-webkit-scrollbar {
+    width: .5rem;
+    height: .5rem;
+}
+
+.table::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    background-color: #0004;
+    visibility: hidden;
+    
+}
+
+.table:hover::-webkit-scrollbar-thumb {
+    
+    visibility: visible;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #d5d1defe;
+}

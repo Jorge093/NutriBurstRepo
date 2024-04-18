@@ -1,0 +1,95 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+    
+@model NutriBurst.Web.Models.Entities.PatientsNb
+
+<h1>Edit Patient</h1>
+
+@if (Model == null)
+{
+    <p>No patient found </p>
+}
+else
+{
+<form method="post">
+
+    <div class="mt-3">
+        <label class="form-label">PatientsId</label>
+            <input type="text" class="form-control" asp-for="PatientsId" readonly />
+    </div>
+
+    <div class="mt-3">
+        <label class="form-label">FirstName</label>
+        <input type="text" class="form-control" asp-for="FirstName" />
+    </div>
+
+    <div class="mt-3">
+        <label class="form-label">LastName</label>
+        <input type="text" class="form-control" asp-for="LastName" />
+    </div>
+
+    <div class="mt-3">
+        <label class="form-label">Age</label>
+        <input type="text" class="form-control" asp-for="Age" />
+    </div>
+
+    <div class="mt-3">
+        <label class="form-label">Height (in meters)</label>
+        <input type="text" class="form-control" id="Height" asp-for="Height" />
+    </div>
+
+    <div class="mt-3">
+        <label class="form-label">Weight (in kilograms)</label>
+        <input type="text" class="form-control" id="Weight" asp-for="Weight" />
+    </div>
+
+    <button type="button" class="mt-3 btn btn-dark" onclick="calculateBMI()">Calculate BMI</button>
+
+    <div class="mt-3">
+        <label class="form-label">BodyMassIndex(BMI)</label>
+        <input type="text" class="form-control" id="BodyMassIndex" name="BodyMassIndex" readonly />
+    </div>
+
+    <div class="mt-3">
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control" asp-for="Email" />
+    </div>
+
+    <div class="mt-3">
+        <label class="form-label">Phone</label>
+        <input type="text" class="form-control" asp-for="Phone" />
+    </div>
+
+    <div class="mt-3">
+            <button type="submit" onclick="beforeSubmit()" class="btn btn-dark">Save </button>
+    </div>
+</form>
+}
+
+<script>
+
+    function calculateBMI(e) {
+        var height = parseFloat(document.getElementById("Height").value);
+        var weight = parseFloat(document.getElementById("Weight").value);
+
+
+        if (!isNaN(height) && !isNaN(weight) && height > 0 && weight > 0) {
+            var bodyMassIndex = weight / (height * height);
+
+
+            document.getElementById("BodyMassIndex").value = bodyMassIndex.toFixed(2);
+
+        } else {
+            alert('Please enter valid height and weight values.');
+        }
+    }
+
+    function beforeSubmit() {
+        document.getElementById("BodyMassIndex").removeAttribute("readonly");
+    }
+
+    </script>

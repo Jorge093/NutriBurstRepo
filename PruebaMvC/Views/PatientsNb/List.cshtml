@@ -1,0 +1,125 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@* <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> *@
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/site.js"></script>
+
+
+@model List<NutriBurst.Web.Models.Entities.PatientsNb>
+
+
+
+    <div class="filter-bar">
+
+        <input type="text" id="filterInput" placeholder="Search...">
+
+    </div>
+
+<section>
+    <h1>PatientsNb</h1>
+</section>
+
+    <main class="table" id="table1">
+        <section>
+            <table>
+                <thead class="container-fluid">
+                    <tr>
+                        <th>PatientsId</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Age</th>
+                        <th>Height</th>
+                        <th>Weight</th>
+                        <th>BodyMassIndex</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var patientsNb3 in Model)
+                    {
+                        <tr>
+                            <td>@patientsNb3.PatientsId</td>
+                            <td>@patientsNb3.FirstName</td>
+                            <td>@patientsNb3.LastName</td>
+                            <td>@patientsNb3.Age</td>
+                            <td>@patientsNb3.Height</td>
+                            <td>@patientsNb3.Weight</td>
+                            <td>@patientsNb3.BodyMassIndex</td>
+                            <td>@patientsNb3.Email</td>
+                            <td>@patientsNb3.Phone</td>
+                            <td>
+                                <a class="btn btn-light" asp-controller="PatientsNb" asp-action="Edit" asp-route-Patientid="@patientsNb3.PatientsId">Edit</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+
+@* <table >
+    <thead>
+        <tr>
+            <th>PatientsId</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Age</th>
+            <th>Height</th>
+            <th>Weight</th>
+            <th>BodyMassIndex</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th> </th>
+        </tr>
+    </thead>
+     <tbody>
+        @foreach (var patientsNb3 in Model)
+        {
+            <tr>
+                <td>@patientsNb3.PatientsId</td>
+                <td>@patientsNb3.FirstName</td>
+                <td>@patientsNb3.LastName</td>
+                <td>@patientsNb3.Age</td>
+                <td>@patientsNb3.Height</td>
+                <td>@patientsNb3.Weight</td>
+                <td>@patientsNb3.BodyMassIndex</td>
+                <td>@patientsNb3.Email</td>
+                <td>@patientsNb3.Phone</td>
+                <td>
+                    <a class="btn btn-light" asp-controller="PatientsNb" asp-action="Edit" asp-route-Patientid="@patientsNb3.PatientsId">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</body> *@
+
+
+
+
+<script>
+    $(document).ready(function () {
+        function filterTable() {
+            var searchText = $('#filterInput').val().toLowerCase();
+            $('#table1 tbody tr').each(function () {
+                var text = $(this).text().toLowerCase();
+                if (text.includes(searchText) || searchText === '') {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        }
+
+        $('#filterInput').on('input', filterTable);
+    });
+
+</script>
+
+
