@@ -40,20 +40,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var patientsNb3 in Model)
+                @foreach (var patient in Model)
                     {
                         <tr>
-                            <td>@patientsNb3.PatientsId</td>
-                            <td>@patientsNb3.FirstName</td>
-                            <td>@patientsNb3.LastName</td>
-                            <td>@patientsNb3.Age</td>
-                            <td>@patientsNb3.Height</td>
-                            <td>@patientsNb3.Weight</td>
-                            <td>@patientsNb3.BodyMassIndex</td>
-                            <td>@patientsNb3.Email</td>
-                            <td>@patientsNb3.Phone</td>
+                        <td>@patient.PatientsId</td>
+                        <td>@patient.FirstName</td>
+                        <td>@patient.LastName</td>
+                        <td>@patient.Age</td>
+                        <td>@patient.Height</td>
+                        <td>@patient.Weight</td>
+                        <td>@patient.BodyMassIndex</td>
+                        <td>@patient.Email</td>
+                        <td>@patient.Phone</td>
                             <td>
-                                <a class="btn btn-light" asp-controller="PatientsNb" asp-action="Edit" asp-route-Patientid="@patientsNb3.PatientsId">Edit</a>
+                            <a class="btn btn-light" asp-controller="PatientsNb" asp-action="Edit" asp-route-id="@patient.PatientsId">Edit</a>
+                            </td>
+                             <td>
+                            <a class="btn btn-light" method="post" asp-controller="PatientsNb" asp-action="Delete" asp-route-Patientid="@patient.PatientsId">Delete</a>
                             </td>
                         </tr>
                     }
@@ -63,45 +66,6 @@
     </main>
 
 
-@* <table >
-    <thead>
-        <tr>
-            <th>PatientsId</th>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>Age</th>
-            <th>Height</th>
-            <th>Weight</th>
-            <th>BodyMassIndex</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th> </th>
-        </tr>
-    </thead>
-     <tbody>
-        @foreach (var patientsNb3 in Model)
-        {
-            <tr>
-                <td>@patientsNb3.PatientsId</td>
-                <td>@patientsNb3.FirstName</td>
-                <td>@patientsNb3.LastName</td>
-                <td>@patientsNb3.Age</td>
-                <td>@patientsNb3.Height</td>
-                <td>@patientsNb3.Weight</td>
-                <td>@patientsNb3.BodyMassIndex</td>
-                <td>@patientsNb3.Email</td>
-                <td>@patientsNb3.Phone</td>
-                <td>
-                    <a class="btn btn-light" asp-controller="PatientsNb" asp-action="Edit" asp-route-Patientid="@patientsNb3.PatientsId">Edit</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-</body> *@
-
-
-
 
 <script>
     $(document).ready(function () {
@@ -109,9 +73,12 @@
             var searchText = $('#filterInput').val().toLowerCase();
             $('#table1 tbody tr').each(function () {
                 var text = $(this).text().toLowerCase();
-                if (text.includes(searchText) || searchText === '') {
+                if (text.includes(searchText) || searchText === '') 
+                {
                     $(this).show();
-                } else {
+                } 
+                else 
+                {
                     $(this).hide();
                 }
             });

@@ -2,8 +2,6 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 $(document).ready(function () {
     function filterTable() {
         var searchText = $('#filterInput').val().toLowerCase();

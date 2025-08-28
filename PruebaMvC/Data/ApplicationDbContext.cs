@@ -11,5 +11,6 @@ namespace NutriBurst.Web.Data
         }
 
         public DbSet<PatientsNb> PatientsNb { get; set; }
+        public DbSet<UsersNb> UsersNb { get; set; }
     }
 }

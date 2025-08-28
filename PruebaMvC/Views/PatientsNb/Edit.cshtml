@@ -65,12 +65,16 @@ else
     </div>
 
     <div class="mt-3">
-            <button type="submit" onclick="beforeSubmit()" class="btn btn-dark">Save </button>
+            <button type="button" id="btnEditPatient" class="btn btn-dark">Save </button>
     </div>
 </form>
 }
 
-<script>
+@section Scripts {
+    <script src="~/js/Patients/EditPatient.js"></script>
+}
+
+@* <script>
 
     function calculateBMI(e) {
         var height = parseFloat(document.getElementById("Height").value);
@@ -92,4 +96,4 @@ else
         document.getElementById("BodyMassIndex").removeAttribute("readonly");
     }
 
-    </script>
+    </script> *@
